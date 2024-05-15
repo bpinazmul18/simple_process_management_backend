@@ -1,0 +1,6 @@
+{
+    "name": "Simple Process Management --Development",
+    "mail" : {
+        "host" : "dev-mail-server"
+    }
+}

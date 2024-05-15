@@ -1,0 +1,6 @@
+{
+    "name": "Simple Process Management --Test environment",
+    "dbURI": "mongodb://localhost:27017/test_process_management",
+    "jwtPrivateKey": "123",
+    "port": "3001"
+}
