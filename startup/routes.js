@@ -1,5 +1,6 @@
 const express = require('express')
 const home = require('../routes/home')
+const process = require('../routes/process')
 const error = require('../middleware/error')
 
 module.exports = function (app) {
@@ -13,6 +14,7 @@ module.exports = function (app) {
 
     //routes
     app.use('/', home)
+    app.use('/api/process', process)
 
     //error
     app.use(error)
