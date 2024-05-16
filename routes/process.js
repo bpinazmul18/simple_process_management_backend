@@ -33,4 +33,13 @@ router.get('/', async (req, res) => {
     return res.status(200).send(process)
 })
 
+router.get('/:id', async (req, res) => {
+    const process = await Process.findOne({
+        PID: req.params.id
+    })
+    if (!process) return res.status(404).send('process was not found by given PID!')
+
+    return res.status(200).send(process)
+})
+
 module.exports = router
