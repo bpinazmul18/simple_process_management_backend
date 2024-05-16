@@ -42,4 +42,13 @@ router.get('/:id', async (req, res) => {
     return res.status(200).send(process)
 })
 
+router.delete('/:id', async (req, res) => {
+    const process = await Process.findOneAndDelete({
+        PID: req.params.id
+    })
+    if (!process) return res.status(404).send('process was not found by given PID!')
+
+    return res.status(200).send(`"${process.PID}" The process Has been successfully deleted.`)
+})
+
 module.exports = router
