@@ -28,4 +28,9 @@ router.post('/', async (req, res) => {
     })
 })
 
+router.get('/', async (req, res) => {
+    const process = await Process.find().sort('-createdAt').select(['-_id', 'PID', 'Creation Time'])
+    return res.status(200).send(process)
+})
+
 module.exports = router
