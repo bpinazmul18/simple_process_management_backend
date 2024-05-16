@@ -3,11 +3,13 @@ const { validate, Process } = require('../models/process')
 const formattedDate = require('../lib/processCreationDate')
 const router = express.Router()
 const pick = require('lodash/pick');
+const { getCreationDate } = require('../lib/processCreationDate')
+const { getPID } = require('../lib/generatePID')
 
 router.post('/', async (req, res) => {
     const { error, value } = validate({
-        "PID": 442268,
-        'Creation Time': formattedDate()
+        "PID": getPID(),
+        'Creation Time': getCreationDate()
     })
 
     if (error) return res.status(400).send(error['details'][0].message)
